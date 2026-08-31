@@ -14,9 +14,12 @@ def _validar_com_pydantic(dados_crus: list[dict]) -> list[dict]:
         try:
             acao = AcaoSchema(
                 symbol=item.get("symbol", ""),
+                companyName=item.get("companyName", "N/A"),
+                website_domain=item.get("website_domain", ""),
                 priceEarnings=item.get("priceEarnings"),
                 returnOnEquity=item.get("returnOnEquity"),
                 volume=item.get("volume", 0),
+                dailyChange=item.get("dailyChange", 0.0),
             )
             validados.append(acao.model_dump())
         except (ValidationError, TypeError, ValueError) as e:

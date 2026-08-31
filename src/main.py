@@ -27,16 +27,15 @@ def _exibir_top_n(top_n, data: str) -> None:
         )
     print("=" * 72)
     print("  Score = Rank P/L + Rank ROE (menor = melhor)")
-    print("  Filtros: P/L > 0 | ROE > 0 | Volume ≥ R$ 1.000.000")
+    print("  Filtros: P/L > 0 | ROE > 0 | Volume >= R$ 1.000.000")
     print("=" * 72)
     print()
 
 
 def main() -> None:
     logger.info("Iniciando pipeline B3 Factor Investing...")
-    from src.config import ensure_output_dir, get_token
+    from src.config import ensure_output_dir
 
-    get_token()
     ensure_output_dir()
     from src.etl.extract import extrair_acoes
     from src.etl.load import carregar

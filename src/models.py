@@ -3,9 +3,12 @@ from pydantic import BaseModel, field_validator
 
 class AcaoSchema(BaseModel):
     symbol: str
+    companyName: str = "N/A"
+    website_domain: str = ""
     priceEarnings: float
     returnOnEquity: float
-    volume: int
+    volume: float
+    dailyChange: float = 0.0
 
     @field_validator("symbol")
     @classmethod

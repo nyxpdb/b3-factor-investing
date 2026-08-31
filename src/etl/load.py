@@ -11,9 +11,12 @@ def _salvar_csv(ranking_completo: pd.DataFrame, data: str) -> str:
     colunas = [
         "rank",
         "symbol",
+        "companyName",
+        "website_domain",
         "priceEarnings",
         "returnOnEquity",
         "volume",
+        "dailyChange",
         "combined_score",
     ]
     colunas_disponiveis = [c for c in colunas if c in ranking_completo.columns]
